@@ -25,7 +25,12 @@ function Counter() {
     counterDispatch(increment({ step: Number(inputValue) }));
   return (
     <CounterSection>
-      <InputNumber value={inputValue} onValueChange={(e) => handleChange(e)} />
+      <InputNumber
+        size={2}
+        data-testId="input"
+        value={inputValue}
+        onValueChange={(e) => handleChange(e)}
+      />
       <CounterValue>{count}</CounterValue>
       <div>
         <Button style={{ marginRight: "5px" }} onClick={handleIncrement}>
