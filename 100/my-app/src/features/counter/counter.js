@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "./counterSlice";
+import { decrement, increment, reset } from "./counterSlice";
 import { CounterSection, CounterValue, CounterButton } from "./CounterStyles";
 import { Button } from "primereact/button";
 
@@ -23,22 +23,30 @@ function Counter() {
     counterDispatch(decrement({ step: Number(inputValue) }));
   const handleIncrement = () =>
     counterDispatch(increment({ step: Number(inputValue) }));
+  const handleReset = () => {
+    counterDispatch(reset());
+  };
   return (
-    <CounterSection>
-      <InputNumber
-        size={2}
-        data-testId="input"
-        value={inputValue}
-        onValueChange={(e) => handleChange(e)}
-      />
+    <div>
       <CounterValue>{count}</CounterValue>
-      <div>
+      <CounterSection>
+        <InputNumber
+          size={2}
+          style={{ marginRight: "5px" }}
+          data-testId="input"
+          value={inputValue}
+          onValueChange={(e) => handleChange(e)}
+        />
+
         <Button style={{ marginRight: "5px" }} onClick={handleIncrement}>
           +
         </Button>
         <Button onClick={handleDecerement}>-</Button>
-      </div>
-    </CounterSection>
+        <Button style={{ marginLeft: "5px" }} onClick={handleReset}>
+          Reset
+        </Button>
+      </CounterSection>
+    </div>
   );
 }
 

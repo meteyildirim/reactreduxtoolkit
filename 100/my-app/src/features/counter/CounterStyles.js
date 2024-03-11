@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const CounterSection = styled.section`
-  display: flex;
+export const CounterSection = styled.div`
+  display: block;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
@@ -11,6 +11,9 @@ export const CounterSection = styled.section`
   background-color: #f0f0f0;
 `;
 export const CounterValue = styled.p`
+  align-items: center;
+  justify-content: center;
+  display: block;
   font-size: 54px;
   font-weight: bold;
   padding: 10px;
